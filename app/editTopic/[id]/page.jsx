@@ -1,5 +1,8 @@
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import EditTopicForm from '@/components/EditTopicForm'
 import Topic from '@/models/topic'
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
 
@@ -21,6 +24,12 @@ const getTopicById = async (id) => {
 } 
 
 export default async function EditTopicPage({params}) {
+
+  const session = await getServerSession(authOptions)
+
+  if (!session) {
+    redirect('/signIn')
+  }
 
   const {id} = params
   const {topic} = await getTopicById(id)

@@ -12,6 +12,7 @@
     "mogoose": "^0.0.1-security",
     "mongoose": "^8.0.1",
     "next": "^14.0.3",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0"
